@@ -1,4 +1,37 @@
-// reset
+// Variables Colors
+
+$primary-color: hsl(7, 99%, 70%);
+$secondary-color: hsl(51, 100%, 49%);
+$text-color: hsl(167, 40%, 24%);
+$text-photo-color: hsl(198, 62%, 26%);
+$text-footer-color: hsl(168, 34%, 41%);
+
+$neutral-color-one: hsl(212, 27%, 19%);
+$neutral-color-two: hsl(213, 9%, 39%);
+$neutral-color-three: hsl(167, 40%, 24%);
+$neutral-color-four: hsl(198, 62%, 26%);
+$neutral-color-five: hsl(168, 34%, 41%);
+
+// Variables Font
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap');
+
+$font-family-title: "Fraunces";
+$font-family-text: "Barlow";
+
+$fw-black: 900;
+$fw-bold: 700;
+$fw-regular: 600;
+
+$fnt-h1: 3.5rem;
+
+// Variables Queries
+
+$m-queries: 375px;
+$d-queries: 1440px;
+
+// Reset
+
 *,
 *::after,
 *::before {
@@ -12,6 +45,45 @@
 }
 
 body {
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-		Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	font-family: $font-family-text, sans-serif;
+	header {
+		width: 100%;
+		padding: 2.5rem;
+		position: fixed;
+		top: 0;
+		z-index: 100;
+	}
+	main {
+		#highlight {
+			height: 800px;
+			width: 100%;
+			display: grid;
+			grid-template-columns: repeat(1,1fr);
+			justify-items: center;
+			isolation: isolate;
+			& > * {
+				grid-row: 1/1;
+				grid-column: 1/1;
+			}
+			h1 {
+				margin-top: 195px;
+				font-family: $font-family-title;
+				font-size: $fnt-h1;
+				font-weight: $fw-black;
+				text-transform: uppercase;
+				color: #fff;
+				letter-spacing: 8.75px;
+			}
+			.highlight__icon {
+				margin-top: 360px;
+			}
+			.highlight__img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center center;
+				z-index: -1;
+			}
+		}
+	}
 }

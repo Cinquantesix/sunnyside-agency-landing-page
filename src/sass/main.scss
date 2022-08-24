@@ -29,6 +29,8 @@ $fnt-nav-contact: 0.9375rem;
 
 $m-fnt-h1: 2.5rem;
 $m-fnt-nav-link: 1.25rem;
+$m-fnt-about-title: 2rem;
+$m-fnt-about-link: 1rem;
 
 // Variables Queries
 
@@ -251,7 +253,69 @@ body {
 					margin-top: 294px;
 				}
 			}
+			#about {
+				display: grid;
+				grid-template-columns: repeat(1,1fr);
 
+				>img {
+					width: 100%;
+				}
+				#transform__txt {
+					order: 2;
+					a::before {
+						background-color: $secondary-color;
+					}
+				}
+				#transform__img {
+					order: 1;
+				}
+				#stand__txt {
+					order: 4;
+					a::before {
+						background-color: $primary-color;
+					}
+				}
+				#stand__img {
+					order: 3;
+				}
+				.about__txt {
+					padding: 4rem 2.5rem;
+					text-align: center;
+					h2 {
+						font-size: $m-fnt-about-title;
+						font-family: $font-family-title;
+						line-height: 2.5rem;
+						color: $neutral-color-one;
+					}
+					p {
+						padding-block: 1.5rem 2rem;
+						color: hsla(233, 10%, 55%, 1);
+						line-height: 30px;
+						font-weight: $fw-regular;
+					}
+					a {
+						position: relative;
+						isolation: isolate;
+						font-size: $m-fnt-about-link;
+						font-family: $font-family-title;
+						text-transform: uppercase;
+						text-decoration: none;
+						color: $neutral-color-one;
+						&::before {
+							content:'';
+							position: absolute;
+							top: 12px;
+							left: 50%;
+							transform: translateX(-50%);
+							width: 110%;
+							height: 10px;
+							border-radius: 26px;
+							opacity: .25;
+							z-index: -1;
+						}
+					}
+				}
+			}
 		}
 	}
 }

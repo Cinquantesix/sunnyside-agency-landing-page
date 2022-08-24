@@ -14,8 +14,14 @@
 			<a href="#">
 				<img class="sunnyside__logo" src="assets/logo.svg" alt="sunnyside-logo">
 			</a>
-			<div class="sunnyside__bg-menu"></div>
-			<nav class="sunnyside__nav">
+			<div id="sunnyside__bg-menu" class="sunnyside__bg-menu">
+				<div class="nav__burger">
+					<div class="nav__line"></div>
+					<div class="nav__line"></div>
+					<div class="nav__line"></div>
+				</div>
+			</div>
+			<nav id="sunnyside__nav" class="sunnyside__nav">
 				<ul>
 					<li><a href="#">About</a></li>
 					<li><a href="#">Services</a></li>
@@ -29,7 +35,11 @@
 			<section id="highlight">
 				<h1>We are creatives</h1>
 				<img class="highlight__icon" src="assets/icon-arrow-down.svg" alt="arrow down">
-				<img class="highlight__img" src="assets/desktop/image-header.jpg" alt="orange img">
+				<img class="highlight__img" 
+					 srcset="assets/desktop/image-header.jpg 2880w,
+					         assets/mobile/image-header.jpg 750w"
+					 sizes="max-width(1440px) 400px, 800px"
+					 alt="orange img">
 			</section>
 			<section id="about">
 				<div>
@@ -101,7 +111,7 @@
 			</ul>
 		</footer>
 
-		<!-- <script src="js/main.js"></script> -->
+		<script src="js/script.js"></script>
 
 	</body>
 </html>

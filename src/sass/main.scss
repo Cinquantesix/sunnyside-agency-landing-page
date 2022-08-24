@@ -27,6 +27,9 @@ $fnt-h1: 3.5rem;
 $fnt-nav-link: 1.125rem;
 $fnt-nav-contact: 0.9375rem;
 
+$m-fnt-h1: 2.5rem;
+$m-fnt-nav-link: 1.25rem;
+
 // Variables Queries
 
 $m-queries: 375px;
@@ -62,35 +65,35 @@ body {
 			height: auto;
 			align-self: center;
 		}
-		.sunnyside__nav  {
-			ul {
-				display: flex;
-				column-gap: 2.5rem;
-				align-items: center;
-				li {
-					display: inline-block;
-					text-align: center;
-					&:last-child {
-						a {
-							background-color: #fff;
-							border-radius: 28px;
-							display: block;
-							padding: 1rem 2rem;
-							color: $neutral-color-one;
-							font-family: $font-family-title;
-							font-size: $fnt-nav-contact;
-							text-transform: uppercase;
-						}
-					}
-					a {
-						color: #fff;
-						font-size: $fnt-nav-link;
-						font-weight: $fw-regular;
-						text-decoration: none;
-					}
-				}
-			}
-		}
+		// .sunnyside__nav  {
+		// 	ul {
+		// 		display: flex;
+		// 		column-gap: 2.5rem;
+		// 		align-items: center;
+		// 		li {
+		// 			display: inline-block;
+		// 			text-align: center;
+		// 			&:last-child {
+		// 				a {
+		// 					background-color: #fff;
+		// 					border-radius: 28px;
+		// 					display: block;
+		// 					padding: 1rem 2rem;
+		// 					color: $neutral-color-one;
+		// 					font-family: $font-family-title;
+		// 					font-size: $fnt-nav-contact;
+		// 					text-transform: uppercase;
+		// 				}
+		// 			}
+		// 			a {
+		// 				color: #fff;
+		// 				font-size: $fnt-nav-link;
+		// 				font-weight: $fw-regular;
+		// 				text-decoration: none;
+		// 			}
+		// 		}
+		// 	}
+		// }
 	}
 	main {
 		#highlight {
@@ -124,6 +127,131 @@ body {
 				object-position: center center;
 				z-index: -1;
 			}
+		}
+	}
+}
+
+@media screen and (max-width: $m-queries){
+	body {
+		header {
+			padding: 2rem 1.5rem;
+			.sunnyside__logo {
+				width: 123px;
+			}
+			.sunnyside__bg-menu {
+				cursor: pointer;
+				position: relative;
+				width: 24px;
+				height: 18px;
+				overflow: hidden;
+				opacity: 1;
+				transition: all .3s ease;
+				&.nav__open {
+					opacity: .5;
+				}
+				.nav__burger {
+					.nav__line {
+						width: 100%;
+						height: 2px;
+						background-color: #fff;
+						border-radius: 5px;
+						position: absolute;
+						&::before {
+							content: '';
+							width: 100%;
+							height: 2px;
+							border-radius: 5px;
+							background-color: #fff;
+							position: absolute;
+							left: -70px;
+						}
+					}
+					&:hover {
+						left: 70px;
+					}
+					>div:nth-child(1) {
+						top: 0px;
+						left: 0;
+						transition: all .3s ease;
+					}
+					>div:nth-child(2) {
+						top: 8px;
+						left: 0;
+						transition: all .3s ease .1s;
+					}
+					>div:nth-child(3) {
+						top: 16px;
+						left: 0;
+						transition: all .3s ease .2s;
+					}
+				}
+			}
+			.sunnyside__nav {
+				opacity: 0;
+				position: absolute;
+				top: 3.125rem;
+				left: 0;
+				padding: 2rem 1.5rem;
+				width: 100%;
+				transition: all .3s ease;
+				&.sunnyside__nav-reveal {
+					opacity: 1;
+				}
+				&::before {
+					display: block;
+					content:'';
+					margin-left: auto;
+					width: 24px;
+					height: 24px;
+					vertical-align: middle;
+					border-bottom: solid 12px #fff;
+					border-right: solid 12px #fff;
+					border-left: solid 12px transparent;
+					border-top: solid 12px transparent;
+				}
+				ul {
+					width: 100%;
+					padding-block: 2.5rem;
+					background-color: #fff;
+					display: grid;
+					grid-template-columns: repeat(1,1fr);
+					justify-items: center;
+					row-gap: 2rem;
+					li {
+						display: block;
+						font-size: $m-fnt-nav-link;
+						&:last-child {
+							a {
+								display: block;
+								background-color: $secondary-color;
+								padding: 1rem 2rem;
+								border-radius: 28px;
+								color: $neutral-color-one;
+								font-family: $font-family-title;
+								text-transform: uppercase;
+							}
+						}
+						a{
+							text-decoration: none;
+							color: hsla(232, 10%, 55%, 1);
+						}
+					}
+				}
+			}
+	  	}
+
+		main {
+			#highlight {
+				height: 538px;
+				h1 {
+					font-size: $m-fnt-h1;
+					margin-top: 144px;
+				}
+				.highlight__icon {
+					margin-top: 294px;
+				}
+			}
+
 		}
 	}
 }

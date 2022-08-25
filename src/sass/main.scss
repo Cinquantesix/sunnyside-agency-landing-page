@@ -59,51 +59,121 @@ body {
 	font-family: $font-family-text, sans-serif;
 	header {
 		width: 100%;
-		padding: 2.5rem;
 		position: absolute;
 		top: 0;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		z-index: 100;
+		padding: 2rem 1.5rem;
 		.sunnyside__logo {
-			width: 170px;
-			height: auto;
 			align-self: center;
+			width: 123px;
 		}
-		// .sunnyside__nav  {
-		// 	ul {
-		// 		display: flex;
-		// 		column-gap: 2.5rem;
-		// 		align-items: center;
-		// 		li {
-		// 			display: inline-block;
-		// 			text-align: center;
-		// 			&:last-child {
-		// 				a {
-		// 					background-color: #fff;
-		// 					border-radius: 28px;
-		// 					display: block;
-		// 					padding: 1rem 2rem;
-		// 					color: $neutral-color-one;
-		// 					font-family: $font-family-title;
-		// 					font-size: $fnt-nav-contact;
-		// 					text-transform: uppercase;
-		// 				}
-		// 			}
-		// 			a {
-		// 				color: #fff;
-		// 				font-size: $fnt-nav-link;
-		// 				font-weight: $fw-regular;
-		// 				text-decoration: none;
-		// 			}
-		// 		}
-		// 	}
-		// }
+		.sunnyside__bg-menu {
+			cursor: pointer;
+			position: relative;
+			width: 24px;
+			height: 18px;
+			overflow: hidden;
+			opacity: 1;
+			transition: all .3s ease;
+			&.nav__open {
+				opacity: .5;
+			}
+			.nav__burger {
+				.nav__line {
+					width: 100%;
+					height: 2px;
+					background-color: #fff;
+					border-radius: 5px;
+					position: absolute;
+					&::before {
+						content: '';
+						width: 100%;
+						height: 2px;
+						border-radius: 5px;
+						background-color: #fff;
+						position: absolute;
+						left: -70px;
+					}
+				}
+				&:hover {
+					left: 70px;
+				}
+				>div:nth-child(1) {
+					top: 0px;
+					left: 0;
+					transition: all .3s ease;
+				}
+				>div:nth-child(2) {
+					top: 8px;
+					left: 0;
+					transition: all .3s ease .1s;
+				}
+				>div:nth-child(3) {
+					top: 16px;
+					left: 0;
+					transition: all .3s ease .2s;
+				}
+			}
+		}
+		.sunnyside__nav {
+			opacity: 0;
+			position: absolute;
+			top: 3.125rem;
+			left: 0;
+			padding: 2rem 1.5rem;
+			width: 100%;
+			transition: all .3s ease;
+			&.sunnyside__nav-reveal {
+				opacity: 1;
+			}
+			&::before {
+				display: block;
+				content:'';
+				margin-left: auto;
+				width: 24px;
+				height: 24px;
+				border-bottom: solid 12px #fff;
+				border-right: solid 12px #fff;
+				border-left: solid 12px transparent;
+				border-top: solid 12px transparent;
+			}
+			ul {
+				width: 100%;
+				padding-block: 2.5rem;
+				background-color: #fff;
+				display: grid;
+				grid-template-columns: repeat(1,1fr);
+				justify-items: center;
+				row-gap: 2rem;
+				li {
+					display: block;
+					font-size: $m-fnt-nav-link;
+					&:last-child {
+						a {
+							display: block;
+							background-color: $secondary-color;
+							padding: 1rem 2rem;
+							border-radius: 28px;
+							color: $neutral-color-one;
+							font-family: $font-family-title;
+							text-transform: uppercase;
+						}
+					}
+					a {
+						text-decoration: none;
+						color: hsla(232, 10%, 55%, 1);
+					}
+				}
+			}
+		}
 	}
+
 	main {
 		#highlight {
-			height: 800px;
+			height: 538px;
 			width: 100%;
 			display: grid;
 			grid-template-columns: repeat(1,1fr);
@@ -115,16 +185,16 @@ body {
 				grid-column: 1/1;
 			}
 			h1 {
-				margin-top: 195px;
+				margin-top: 144px;
 				font-family: $font-family-title;
-				font-size: $fnt-h1;
+				font-size: $m-fnt-h1;
 				font-weight: $fw-black;
 				text-transform: uppercase;
 				color: #fff;
 				letter-spacing: 8.75px;
 			}
 			.highlight__icon {
-				margin-top: 360px;
+				margin-top: 294px;
 			}
 			.highlight__img {
 				width: 100%;
@@ -134,312 +204,225 @@ body {
 				z-index: -1;
 			}
 		}
-	}
-}
+		#about {
+			display: grid;
+			grid-template-columns: repeat(1,1fr);
 
-@media screen and (max-width: $m-queries){
-	body {
-		header {
-			padding: 2rem 1.5rem;
-			.sunnyside__logo {
-				width: 123px;
-			}
-			.sunnyside__bg-menu {
-				cursor: pointer;
-				position: relative;
-				width: 24px;
-				height: 18px;
-				overflow: hidden;
-				opacity: 1;
-				transition: all .3s ease;
-				&.nav__open {
-					opacity: .5;
-				}
-				.nav__burger {
-					.nav__line {
-						width: 100%;
-						height: 2px;
-						background-color: #fff;
-						border-radius: 5px;
-						position: absolute;
-						&::before {
-							content: '';
-							width: 100%;
-							height: 2px;
-							border-radius: 5px;
-							background-color: #fff;
-							position: absolute;
-							left: -70px;
-						}
-					}
-					&:hover {
-						left: 70px;
-					}
-					>div:nth-child(1) {
-						top: 0px;
-						left: 0;
-						transition: all .3s ease;
-					}
-					>div:nth-child(2) {
-						top: 8px;
-						left: 0;
-						transition: all .3s ease .1s;
-					}
-					>div:nth-child(3) {
-						top: 16px;
-						left: 0;
-						transition: all .3s ease .2s;
-					}
-				}
-			}
-			.sunnyside__nav {
-				opacity: 0;
-				position: absolute;
-				top: 3.125rem;
-				left: 0;
-				padding: 2rem 1.5rem;
+			>img {
 				width: 100%;
-				transition: all .3s ease;
-				&.sunnyside__nav-reveal {
-					opacity: 1;
-				}
-				&::before {
-					display: block;
-					content:'';
-					margin-left: auto;
-					width: 24px;
-					height: 24px;
-					border-bottom: solid 12px #fff;
-					border-right: solid 12px #fff;
-					border-left: solid 12px transparent;
-					border-top: solid 12px transparent;
-				}
-				ul {
-					width: 100%;
-					padding-block: 2.5rem;
-					background-color: #fff;
-					display: grid;
-					grid-template-columns: repeat(1,1fr);
-					justify-items: center;
-					row-gap: 2rem;
-					li {
-						display: block;
-						font-size: $m-fnt-nav-link;
-						&:last-child {
-							a {
-								display: block;
-								background-color: $secondary-color;
-								padding: 1rem 2rem;
-								border-radius: 28px;
-								color: $neutral-color-one;
-								font-family: $font-family-title;
-								text-transform: uppercase;
-							}
-						}
-						a {
-							text-decoration: none;
-							color: hsla(232, 10%, 55%, 1);
-						}
-					}
+			}
+			#transform__txt {
+				order: 2;
+				a::before {
+					background-color: $secondary-color;
 				}
 			}
-	  	}
-
-		main {
-			#highlight {
-				height: 538px;
-				h1 {
-					font-size: $m-fnt-h1;
-					margin-top: 144px;
-				}
-				.highlight__icon {
-					margin-top: 294px;
+			#transform__img {
+				order: 1;
+			}
+			#stand__txt {
+				order: 4;
+				a::before {
+					background-color: $primary-color;
 				}
 			}
-			#about {
-				display: grid;
-				grid-template-columns: repeat(1,1fr);
-
-				>img {
-					width: 100%;
-				}
-				#transform__txt {
-					order: 2;
-					a::before {
-						background-color: $secondary-color;
-					}
-				}
-				#transform__img {
-					order: 1;
-				}
-				#stand__txt {
-					order: 4;
-					a::before {
-						background-color: $primary-color;
-					}
-				}
-				#stand__img {
-					order: 3;
-				}
-				.about__txt {
-					padding: 4rem 2.5rem;
-					text-align: center;
-					h2 {
-						font-size: $m-fnt-about-title;
-						font-family: $font-family-title;
-						line-height: 2.5rem;
-						color: $neutral-color-one;
-					}
-					p {
-						padding-block: 1.5rem 2rem;
-						color: hsla(233, 10%, 55%, 1);
-						line-height: 30px;
-						font-weight: $fw-regular;
-					}
-					a {
-						position: relative;
-						isolation: isolate;
-						font-size: $m-fnt-about-link;
-						font-family: $font-family-title;
-						text-transform: uppercase;
-						text-decoration: none;
-						color: $neutral-color-one;
-						&::before {
-							content:'';
-							position: absolute;
-							top: 12px;
-							left: 50%;
-							transform: translateX(-50%);
-							width: 110%;
-							height: 10px;
-							border-radius: 26px;
-							opacity: .25;
-							z-index: -1;
-						}
-					}
-				}
+			#stand__img {
+				order: 3;
 			}
-			#services {
-				display: grid;
-				grid-template-columns: repeat(1,1fr);
-				>div {
-					width: 100%;
-					display: grid;
-					grid-template-columns: repeat(1,1fr);
+			.about__txt {
+				padding: 4rem 2.5rem;
+				text-align: center;
+				h2 {
+					font-size: $m-fnt-about-title;
+					font-family: $font-family-title;
+					line-height: 2.5rem;
+					color: $neutral-color-one;
+				}
+				p {
+					padding-block: 1.5rem 2rem;
+					color: hsla(233, 10%, 55%, 1);
+					line-height: 30px;
+					font-weight: $fw-regular;
+				}
+				a {
+					position: relative;
 					isolation: isolate;
-					align-items: flex-end;
-					text-align: center;
-					>* {
-						grid-column: 1/1;
-						grid-row: 1/1;
-					}
-					#graphicdesign {
-						color: #24554A;
-					}
-					#photography {
-						color: hsla(197, 86%, 12%, 1);
-						opacity: .75;
-					}
-					>div {
-						h3 {
-							font-family: $font-family-title;
-							font-size: $m-fnt-h3;
-							margin-bottom: 1.5rem;
-						}
-						p {
-							font-size: $m-fnt-txt;
-							line-height: 27px;
-							padding-inline: 1.5rem;
-							margin-bottom: 3.75rem;
-						}
-					}
-					>img {
-						width: 100%;
+					font-size: $m-fnt-about-link;
+					font-family: $font-family-title;
+					text-transform: uppercase;
+					text-decoration: none;
+					color: $neutral-color-one;
+					&::before {
+						content:'';
+						position: absolute;
+						top: 12px;
+						left: 50%;
+						transform: translateX(-50%);
+						width: 110%;
+						height: 10px;
+						border-radius: 26px;
+						opacity: .25;
 						z-index: -1;
 					}
 				}
 			}
-			#testimonials {
-				display: grid;
-				grid-template-columns: repeat(1,1fr);
-				row-gap: 4rem;
-				padding: 4rem 1.5rem;
-				justify-items: center;
-				h4 {
-					font-family: $font-family-title;
-					font-size: $m-fnt-txt;
-					letter-spacing: 4px;
-					text-transform: uppercase;
-					color: hsla(210, 4%, 67%, 1);
-				}
-				>div {
-					text-align: center;
-					>img {
-						width: 72px;
-						height: 72px;
-						object-fit: cover;
-						object-position: center center;
-						border-radius: 50%;
-					}
-					.testimonials__quotes {
-						padding-block: 2rem;
-						color: $neutral-color-two;
-						line-height: 32px;
-						font-size: $m-fnt-testimonial-txt;
-					}
-					.testimonials__people {
-						color: $neutral-color-one;
-						font-family: $font-family-title;
-						font-size: $m-fnt-testimonial-txt;
-						margin-bottom: .5rem;
-					}
-					.testimonials__roles {
-						color: hsla(210, 4%, 67%, 1);
-						font-size: $m-fnt-testimonial-roles;
-					}
-				}
-			}
-			#projects {
+		}
+		#services {
+			display: grid;
+			grid-template-columns: repeat(1,1fr);
+			>div {
 				width: 100%;
 				display: grid;
-				grid-template-columns: repeat(2,1fr);
+				grid-template-columns: repeat(1,1fr);
+				isolation: isolate;
+				align-items: flex-end;
+				text-align: center;
+				>* {
+					grid-column: 1/1;
+					grid-row: 1/1;
+				}
+				#graphicdesign {
+					color: #24554A;
+				}
+				#photography {
+					color: hsla(197, 86%, 12%, 1);
+					opacity: .75;
+				}
+				>div {
+					h3 {
+						font-family: $font-family-title;
+						font-size: $m-fnt-h3;
+						margin-bottom: 1.5rem;
+					}
+					p {
+						font-size: $m-fnt-txt;
+						line-height: 27px;
+						padding-inline: 1.5rem;
+						margin-bottom: 3.75rem;
+					}
+				}
 				>img {
-					height: 188px;
 					width: 100%;
-					object-fit: cover;
-					object-position: center center;
+					z-index: -1;
 				}
 			}
 		}
-
-		footer {
-			background-color: hsla(168, 44%, 70%, 1);
+		#testimonials {
 			display: grid;
 			grid-template-columns: repeat(1,1fr);
+			row-gap: 4rem;
+			padding: 4rem 1.5rem;
 			justify-items: center;
-			padding: 4rem 2.5rem 5rem 2.5rem;
-			gap: 2.5rem;
-			>svg {
-				path {
-					fill: $neutral-color-five;
+			h4 {
+				font-family: $font-family-title;
+				font-size: $m-fnt-txt;
+				letter-spacing: 4px;
+				text-transform: uppercase;
+				color: hsla(210, 4%, 67%, 1);
+			}
+			>div {
+				text-align: center;
+				>img {
+					width: 72px;
+					height: 72px;
+					object-fit: cover;
+					object-position: center center;
+					border-radius: 50%;
+				}
+				.testimonials__quotes {
+					padding-block: 2rem;
+					color: $neutral-color-two;
+					line-height: 32px;
+					font-size: $m-fnt-testimonial-txt;
+				}
+				.testimonials__people {
+					color: $neutral-color-one;
+					font-family: $font-family-title;
+					font-size: $m-fnt-testimonial-txt;
+					margin-bottom: .5rem;
+				}
+				.testimonials__roles {
+					color: hsla(210, 4%, 67%, 1);
+					font-size: $m-fnt-testimonial-roles;
 				}
 			}
-			ul {
+		}
+		#projects {
+			width: 100%;
+			display: grid;
+			grid-template-columns: repeat(2,1fr);
+			>img {
+				height: 188px;
 				width: 100%;
-				display: flex;
-				justify-content: space-between;
-				&:last-child {
-					padding-inline: 4rem;
-				}
-				li {
-					display: block;
-					a {
-						color: hsla(167, 34%, 41%, 1);
-						font-size: $m-fnt-testimonial-txt;
-						text-decoration: none;
-					}
+				object-fit: cover;
+				object-position: center center;
+			}
+		}
+	}
+
+	footer {
+		background-color: hsla(168, 44%, 70%, 1);
+		display: grid;
+		grid-template-columns: repeat(1,1fr);
+		justify-items: center;
+		padding: 4rem 2.5rem 5rem 2.5rem;
+		gap: 2.5rem;
+		>svg {
+			path {
+				fill: $neutral-color-five;
+			}
+		}
+		ul {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			&:last-child {
+				padding-inline: 4rem;
+			}
+			li {
+				display: block;
+				a {
+					color: hsla(167, 34%, 41%, 1);
+					font-size: $m-fnt-testimonial-txt;
+					text-decoration: none;
 				}
 			}
+		}
+	}
+}
+
+@media screen and (min-width:$m-queries){
+	body {
+		header {
+			// .sunnyside__nav  {
+			// 	ul {
+			// 		display: flex;
+			// 		column-gap: 2.5rem;
+			// 		align-items: center;
+			// 		li {
+			// 			display: inline-block;
+			// 			text-align: center;
+			// 			&:last-child {
+			// 				a {
+			// 					background-color: #fff;
+			// 					border-radius: 28px;
+			// 					display: block;
+			// 					padding: 1rem 2rem;
+			// 					color: $neutral-color-one;
+			// 					font-family: $font-family-title;
+			// 					font-size: $fnt-nav-contact;
+			// 					text-transform: uppercase;
+			// 				}
+			// 			}
+			// 			a {
+			// 				color: #fff;
+			// 				font-size: $fnt-nav-link;
+			// 				font-weight: $fw-regular;
+			// 				text-decoration: none;
+			// 			}
+			// 		}
+			// 	}
+			// }
 		}
 	}
 }

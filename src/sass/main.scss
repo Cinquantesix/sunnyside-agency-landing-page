@@ -411,5 +411,35 @@ body {
 				}
 			}
 		}
+
+		footer {
+			background-color: hsla(168, 44%, 70%, 1);
+			display: grid;
+			grid-template-columns: repeat(1,1fr);
+			justify-items: center;
+			padding: 4rem 2.5rem 5rem 2.5rem;
+			gap: 2.5rem;
+			>svg {
+				path {
+					fill: $neutral-color-five;
+				}
+			}
+			ul {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				&:last-child {
+					padding-inline: 4rem;
+				}
+				li {
+					display: block;
+					a {
+						color: hsla(167, 34%, 41%, 1);
+						font-size: $m-fnt-testimonial-txt;
+						text-decoration: none;
+					}
+				}
+			}
+		}
 	}
 }

@@ -35,11 +35,10 @@
 			<section id="highlight">
 				<h1>We are creatives</h1>
 				<img class="highlight__icon" src="assets/icon-arrow-down.svg" alt="arrow down">
-				<img class="highlight__img" 
-					 srcset="assets/desktop/image-header.jpg 2880w,
-					         assets/mobile/image-header.jpg 750w"
-					 sizes="max-width(1440px) 400px, 800px"
-					 alt="orange img">
+				<picture class="highlight__img">
+					<source media="(max-width:375px)" srcset="assets/mobile/image-header.jpg">
+  					<img src="assets/desktop/image-header.jpg" alt="orange img">
+				</picture>
 			</section>
 			<section id="about">
 				<div id="transform__txt" class="about__txt">

@@ -206,10 +206,15 @@ body {
 		}
 		#about {
 			display: grid;
-			grid-template-columns: repeat(1,1fr);
-
-			>img {
+			grid-template-columns: repeat(1,1fr);	
+			>picture {
+				overflow: hidden;
 				width: 100%;
+				>img {
+					width: 100%;
+					object-fit: cover;
+					object-position: center center;
+				}
 			}
 			#transform__txt {
 				order: 2;
@@ -394,35 +399,86 @@ body {
 @media screen and (min-width:$m-queries){
 	body {
 		header {
-			// .sunnyside__nav  {
-			// 	ul {
-			// 		display: flex;
-			// 		column-gap: 2.5rem;
-			// 		align-items: center;
-			// 		li {
-			// 			display: inline-block;
-			// 			text-align: center;
-			// 			&:last-child {
-			// 				a {
-			// 					background-color: #fff;
-			// 					border-radius: 28px;
-			// 					display: block;
-			// 					padding: 1rem 2rem;
-			// 					color: $neutral-color-one;
-			// 					font-family: $font-family-title;
-			// 					font-size: $fnt-nav-contact;
-			// 					text-transform: uppercase;
-			// 				}
-			// 			}
-			// 			a {
-			// 				color: #fff;
-			// 				font-size: $fnt-nav-link;
-			// 				font-weight: $fw-regular;
-			// 				text-decoration: none;
-			// 			}
-			// 		}
-			// 	}
-			// }
+			padding: 2.875rem 2.5rem;
+			.sunnyside__logo {
+				width: 170px;
+			}
+			.sunnyside__bg-menu {
+				display: none;
+			}
+			.sunnyside__nav  {
+				opacity: 1;
+				position: relative;
+				top: 0;
+				padding: 0;
+				&::before {
+					display: none;
+				}
+				ul {
+					background-color: inherit;
+					display: flex;
+					column-gap: 2.5rem;
+					align-items: center;
+					padding: 0;
+					justify-content: flex-end;
+					li {
+						display: inline-block;
+						text-align: center;
+						&:last-child {
+							a {
+								background-color: #fff;
+								border-radius: 28px;
+								display: block;
+								padding: 1rem 2rem;
+								color: $neutral-color-one;
+								font-family: $font-family-title;
+								font-size: $fnt-nav-contact;
+								text-transform: uppercase;
+							}
+						}
+						a {
+							color: #fff;
+							font-size: $fnt-nav-link;
+							font-weight: $fw-regular;
+							text-decoration: none;
+						}
+					}
+				}
+			}
+		}
+		main {
+			#highlight {
+				height: 800px;
+				h1 {
+					margin-top: 195px;
+				}
+				.highlight__icon {
+					margin-top: 360px;
+				}
+			}
+			#about {
+				grid-template-columns: repeat(2,1fr);
+				align-items: center;
+				>picture {
+					height: 600px;
+				}
+				.about__txt {
+					text-align: left;
+				}
+				#transform__txt {
+					padding: 0 6.875rem 0 10.5rem;
+					order: 1;
+				}
+				#stand__txt {
+					padding: 0 10.5rem 0 6.875rem;
+				}
+			}
+			#services {
+				grid-template-columns: repeat(2,1fr);
+				>div {
+					height: 600px;
+				}
+			}
 		}
 	}
 }

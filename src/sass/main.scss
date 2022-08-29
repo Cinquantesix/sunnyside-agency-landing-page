@@ -550,3 +550,51 @@ body {
 		}
 	}
 }
+
+body {
+	header {
+		nav {
+			ul {
+				li:last-child {
+					a {
+						transition: all .3s ease;
+					}
+					&:hover {
+						a {
+							background-color: rgba(255,255,255,.5);
+							color: #fff;
+						}
+					}
+				}
+			}
+		}
+	}
+	main {
+		#about {
+			>div {
+				a {
+					&::before {
+						transition: all .3s ease;
+					}
+					&:hover {
+						&::before {
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+	}
+	footer {
+		>ul {
+			>li {
+				a {
+					transition: all .3s ease;
+					&:hover {
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+}
